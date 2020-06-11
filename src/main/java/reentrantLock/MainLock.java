@@ -3,6 +3,9 @@ package reentrantLock;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
 
+/**
+ * 可重入锁
+ */
 public class MainLock {
     private Lock lock = new ReentrantLock();
     public static void main(String[] args) {
