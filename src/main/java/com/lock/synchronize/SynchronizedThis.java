@@ -1,19 +1,14 @@
-package com.lock.object;
+package com.lock.synchronize;
 
 /**
- * synchronized (非this对象)
+ * synchronized (this)
  * 
  * @author onlyone
  */
-public class SynchronizedObject {
-
-    // private Object lock = new Object();
-
-    private Object lock1 = new Object();
-    private Object lock2 = new Object();
+public class SynchronizedThis {
 
     public void m1() {
-        synchronized (lock1) {
+        synchronized (this) {
             System.out.println("m1方法获得锁");
             try {
                 Thread.sleep(1200);
@@ -25,7 +20,7 @@ public class SynchronizedObject {
     }
 
     public void m2() {
-        synchronized (lock2) {
+        synchronized (this) {
             System.out.println("m2方法获得锁");
             try {
                 Thread.sleep(1200);
@@ -39,34 +34,34 @@ public class SynchronizedObject {
 
     static class Task1 implements Runnable {
 
-        private SynchronizedObject synchronizedObject;
+        private SynchronizedThis synchronizedThis;
 
-        public Task1(SynchronizedObject synchronizedObject){
-            this.synchronizedObject = synchronizedObject;
+        public Task1(SynchronizedThis synchronizedThis){
+            this.synchronizedThis = synchronizedThis;
         }
 
         @Override
         public void run() {
-            synchronizedObject.m1();
+            synchronizedThis.m1();
         }
     }
 
     static class Task2 implements Runnable {
 
-        private SynchronizedObject synchronizedObject;
+        private SynchronizedThis synchronizedThis;
 
-        public Task2(SynchronizedObject synchronizedObject){
-            this.synchronizedObject = synchronizedObject;
+        public Task2(SynchronizedThis synchronizedThis){
+            this.synchronizedThis = synchronizedThis;
         }
 
         @Override
         public void run() {
-            synchronizedObject.m2();
+            synchronizedThis.m2();
         }
     }
 
     public static void main(String[] args) throws InterruptedException {
-        SynchronizedObject syn = new SynchronizedObject();
+        SynchronizedThis syn = new SynchronizedThis();
         new Thread(new Task1(syn)).start();
         new Thread(new Task2(syn)).start();
 

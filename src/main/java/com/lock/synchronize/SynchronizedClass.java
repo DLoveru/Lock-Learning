@@ -1,4 +1,4 @@
-package com.lock.class1;
+package com.lock.synchronize;
 
 
 /**

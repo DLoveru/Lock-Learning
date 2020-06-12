@@ -108,19 +108,19 @@ synchronized修饰非静态方法、同步代码块的synchronized (this)、sync
 
 http://blog.csdn.net/u013142781/article/details/51697672
 
-代码示例：$Link {com.lock.object.SynchronizedMethod}
+代码示例：$Link {com.lock.synchronize.SynchronizedMethod}
 
-代码示例：$Link {com.lock.object.SynchronizedThis}
+代码示例：$Link {com.lock.synchronize.SynchronizedThis}
 
-代码示例：$Link {com.lock.object.SynchronizedObject}
+代码示例：$Link {com.lock.synchronize.SynchronizedObject}
 
 #### :point_right: 类锁
 
 synchronized修饰静态方法或者同步代码块的synchronized (类.class)，线程想要执行对应同步代码，需要获得类锁。
 
-代码示例：$Link {com.lock.class1.SynchronizedStaticMethod}
+代码示例：$Link {com.lock.synchronize.SynchronizedStaticMethod}
 
-代码示例：$Link {com.lock.class1.SynchronizedClass}
+代码示例：$Link {com.lock.synchronize.SynchronizedClass}
 
 #### :point_right: 信号量
 
