@@ -1,9 +1,15 @@
 package com.lock.spin;
 
 import java.util.concurrent.CountDownLatch;
+import java.util.concurrent.TimeUnit;
 
 /**
  * 自旋锁测试类
+ * countDownLatch这个类使一个线程等待其他线程各自执行完毕后再执行。
+ * 是通过一个计数器来实现的，计数器的初始值是线程的数量。
+ * 每当一个线程执行完毕后，计数器的值就-1，当计数器的值为0时，表示所有线程都执行完毕，
+ * 然后在闭锁上等待的线程就可以恢复工作了
+ *
  * 
  * @author onlyone
  */
@@ -33,7 +39,7 @@ public class SpinLockTest implements Runnable {
         System.out.println(name + " 已经获得锁！");
         // 模拟业务处理
         try {
-            Thread.currentThread().sleep(1500);
+            TimeUnit.SECONDS.sleep(1);
         } catch (InterruptedException e) {
             // TODO Auto-generated catch block
             e.printStackTrace();
